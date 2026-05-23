@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>五十音探險</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="app">
+    <section class="game-shell" aria-labelledby="game-title">
+      <div class="hero-panel">
+        <div class="hero-copy">
+          <p class="eyebrow">日語 50 音入門</p>
+          <h1 id="game-title">五十音探險</h1>
+          <p class="subtitle">看見假名，選出正確羅馬字。連續答對可以累積星星，答錯會顯示提示。</p>
+        </div>
+        <div class="stage" aria-hidden="true">
+          <div class="sun"></div>
+          <div class="torii">
+            <span></span><span></span><span></span><span></span>
+          </div>
+          <div class="floating-kana kana-one">あ</div>
+          <div class="floating-kana kana-two">カ</div>
+          <div class="floating-kana kana-three">ま</div>
+        </div>
+      </div>
+
+      <div class="controls" aria-label="遊戲設定">
+        <div class="segmented" role="group" aria-label="假名種類">
+          <button class="segment active" type="button" data-mode="hiragana">平假名</button>
+          <button class="segment" type="button" data-mode="katakana">片假名</button>
+          <button class="segment" type="button" data-mode="mixed">混合</button>
+        </div>
+        <button class="icon-button" id="sound-toggle" type="button" aria-pressed="true" title="音效開關">
+          <span aria-hidden="true">♪</span>
+          <span class="sr-only">音效開關</span>
+        </button>
+      </div>
+
+      <section class="quiz-area" aria-live="polite">
+        <div class="score-row">
+          <div>
+            <span class="label">分數</span>
+            <strong id="score">0</strong>
+          </div>
+          <div>
+            <span class="label">連續答對</span>
+            <strong id="streak">0</strong>
+          </div>
+          <div>
+            <span class="label">星星</span>
+            <strong id="stars">0</strong>
+          </div>
+        </div>
+
+        <div class="question-card">
+          <div class="prompt">
+            <span class="label">這個假名怎麼唸？</span>
+            <div class="kana-card" id="kana-card">あ</div>
+            <div class="hint" id="hint">請選出正確羅馬字</div>
+          </div>
+          <div class="answers" id="answers"></div>
+        </div>
+
+        <div class="actions">
+          <button class="primary" id="next-button" type="button">下一題</button>
+          <button class="ghost" id="reset-button" type="button">重新開始</button>
+        </div>
+      </section>
+    </section>
+
+    <section class="chart-section" aria-labelledby="chart-title">
+      <div class="section-heading">
+        <p class="eyebrow">快速複習</p>
+        <h2 id="chart-title">50 音表</h2>
+      </div>
+      <div class="chart-tabs" role="group" aria-label="複習表切換">
+        <button class="chart-tab active" type="button" data-chart="hiragana">平假名</button>
+        <button class="chart-tab" type="button" data-chart="katakana">片假名</button>
+      </div>
+      <div class="kana-grid" id="kana-grid"></div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
